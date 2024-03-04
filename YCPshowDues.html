@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show users details</title>
+   <style>
+.content {
+  max-width: 500px;
+  margin: auto;
+  h3{ color: red;}
+}
+</style>
+    <script>
+<!--with javascript to hold data for msg error correction -->
+function validate() {
+  var num = document.getElementById('num');
+  var pass = document.getElementById('pass');
+if (num.value == "") {
+    alert("ENTER ROW NUMBER TO DELETE");
+    return false;
+  }
+  if (pass.value == "") {
+    alert("ENTER PASSOWRD !!!");
+    return false;
+  }
+  }</script>
+</head>
+<body>
+
+<div class="content">
+    <H2><a href="/">Home</a></H2>
+    <h1>Paid Members</h1>
+    <p>{{record|safe}}</p> <!-- this variable holds the webserver show results-->
+
+    <!-- Admin section  to delete row in the above file-->
+    <p>{{usersfile2| safe}}</p> <!--  this variable holds the webserver after delete results-->
+<form  action ="/check", method = "post", target="_blank">
+    <h1> Delete dues  records</h1>
+    <p>Enter MemberS ID to delete:</p>
+    <input type="number" name="num" id="num">
+
+      <p>Enter month:</p>
+    <select name="mn" id="mn">
+  <option value="JAN">JANUARY</option>
+  <option value="FEB">FEBRUARY</option>
+  <option value="MAR">MARCH</option>
+  <option value="APR">APRIL</option>
+        <option value="MAY">MAY</option>
+  <option value="JUN">JUNE</option>
+  <option value="JUL">JULY</option>
+  <option value="AUG">AUGUST</option>
+         <option value="SEPT">SEPTEMBER</option>
+  <option value="OCT">OCTOBER</option>
+  <option value="NOV">NOVEMBER</option>
+  <option value="DEC">DECEMBER</option>
+    </select>
+
+    <p>Enter password:</p>
+
+    <input type="password" name="pass" id="pass">
+    <p>  <input type="submit" value="Delete" onclick="return validate()" />
+    <input type="reset" value="Clear" /></p>
+
+    <h3>{{errors_row}}</h3>
+    <h3>{{errors_pass2}}</h3>
+</form>
+
+</div>
+</body>
+</html>

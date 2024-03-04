@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Dues</title>
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+  h3{ color: red;}
+}
+</style>
+    <script>
+<!--with javascript to hold data for msg error correction -->
+function validate() {
+  var num = document.getElementById('num');
+  var nm = document.getElementById('nm');
+  var snm = document.getElementById('snm');
+
+  var pay = document.getElementById('pay');
+  var mn= document.getElementById('mn');
+  var yr = document.getElementById('yr');
+
+if (num.value == "") {
+    alert("Enter members ID");
+    return false;
+  }
+  if (nm.value == "") {
+    alert("Enter First name");
+    return false;
+  }
+    if (snm.value == "") {
+    alert("Enter surname");
+    return false;
+  }
+    if (pay.value == "") {
+    alert("Enter Dues");
+    return false;
+  }
+    if (mn.value == "") {
+    alert("Enter month");
+    return false;
+  }
+    if (yr.value == "") {
+    alert("Enter Year");
+    return false;
+  }
+  }</script>
+</head>
+<body>
+
+<div class="content">
+
+<form method="POST" action ="#">
+    <H1> You are welcome, please Upload Members Dues </H1>
+    <h3>{{err_dup}}</h3> <!-- this variable holds the double upload of dues errors msg from server-->
+
+     <p>Enter Members Id:</p>
+
+    <input type="number" name="num" id="num">
+    <p>Enter Name:</p>
+
+    <input type="text" name="nm" id="nm" >
+    <p>Enter surName:</p>
+
+    <input type="text" name="snm" id="snm">
+    <p>Enter Dues:</p>
+
+    <input type="number" name="pay" id="pay">
+    <p>Enter month:</p>
+    <select name="mn" id="mn">
+  <option value="JAN">JANUARY</option>
+  <option value="FEB">FEBRUARY</option>
+  <option value="MAR">MARCH</option>
+  <option value="APR">APRIL</option>
+        <option value="MAY">MAY</option>
+  <option value="JUN">JUNE</option>
+  <option value="JUL">JULY</option>
+  <option value="AUG">AUGUST</option>
+         <option value="SEPT">SEPTEMBER</option>
+  <option value="OCT">OCTOBER</option>
+  <option value="NOV">NOVEMBER</option>
+  <option value="DEC">DECEMBER</option>
+    </select>
+    <p>Enter year:</p>
+    <select name="yr" id="yr">
+         <option value="2024">2024</option>
+  <option value="2025">2025</option>
+  <option value="2026">2026</option>
+    </select>
+
+    <p>  <input type="submit" value="Submit" onclick="return validate()" />
+    <input type="reset" value="Clear" /></p>
+
+
+</form>
+ <!-- to see all paid members  button- a GET HTTP protocol ,method = "post",-->
+<form  action ="/check" ,target="_blank">
+    <p> check Membership dues</p>
+    <input type="submit" value="check record">
+</form>
+
+</div>
+</body>
+</html>
